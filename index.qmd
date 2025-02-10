@@ -1,5 +1,6 @@
 ---
 title: "WELCOME PAGE"
+author: "Karabo Tigedi"
 ---
 
 # Welcome to my practicals website!! 
