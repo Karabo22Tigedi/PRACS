@@ -102,7 +102,7 @@ flights |> filter((dep_delay > 0 & arr_delay <= 0)) |>
 
 # Question 6
 
-####### a.
+####### 6.1.
 
 ```{r}
 #| echo: true
@@ -111,7 +111,7 @@ flights |> group_by(origin,dest) |>
   filter(more_than_one > 1) 
 ```
 
-####### b.
+####### 6.2.
 
 ```{r}
 #| echo: true
@@ -120,7 +120,7 @@ flights |> group_by(origin,dest, carrier) |>
   select(origin, dest, avg_arr_delay, carrier)
 ```
 
-####### c.
+####### 6.3.
 
 ```{r}
 #| echo: true
@@ -131,7 +131,7 @@ flights_c = flights |> group_by(origin,dest, carrier) |>
 flights_c
 ```
 
-####### d.
+####### 6.4.
 
 ```{r}
 #| echo: true
@@ -147,7 +147,7 @@ best_worst_airlines = flights_c |>
 best_worst_airlines
 ```
 
-####### d.
+####### 6.5.
 
 ```{r}
 #| echo: true
