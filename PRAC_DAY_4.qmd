@@ -64,10 +64,20 @@ dist_tbl |> arrange(mean_distance)
 ```
 
 # Question 3
+The standard deviation (SD) measures the spread of values.
+If there is only one observation in a group, SD cannot be computed (hence, NA). If all values in a group are identical, the SD is 0 (no variation). Look at the following example:
 
 ```{r}
-#| echo: false
-
+#| echo: true
+df <- data.frame(
+  carrier = c("A", "A", "A", "B", "B", "C"),
+  delay = c(10, 10, 10, 5, 15, 7)
+)
+# Calculate sd by carrier
+df_summary <- df %>%
+  group_by(carrier) %>%
+  summarise(sd_delay = sd(delay, na.rm = TRUE))
+print(df_summary)
 ```
 
 # Question 4
