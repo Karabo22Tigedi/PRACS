@@ -1,5 +1,35 @@
 project:
-  title: "PRACS"
-
-editor: visual
+  title: "Practicals"
+  type: book
+  output-dir: _site
+  
+website: 
+  navbar: 
+    left:
+      - href: PRAC_1.qmd
+        text: Practical 1
+      - href: PRAC_2.qmd
+        text: Practical 2
+      - href: PRAC_DAY_4.qmd
+        text: Practical day 4
+      
+book: 
+  chapters: 
+    - PRAC_1.qmd
+    - PRAC_2.qmd
+    - PRAC_DAY_4.qmd
+    
+format: 
+  html: 
+    toc: true
+    theme: 
+        dark: darkly
+    toc-depth: 3
+    toc-location: left
+    toc-title: "On this page"
+    code-links:
+      - text: Github link source code
+        href: https://data.nasa.gov/
+    css: csss
+    code-overflow: wrap
 

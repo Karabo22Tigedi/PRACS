@@ -1,21 +1,6 @@
 ---
 title: "Practical One"
 author: "Karabo Tigedi"
-format: 
-  html: 
-    toc: true
-    theme: 
-        dark: darkly
-    toc-depth: 3
-    toc-location: left
-    toc-title: "On this page"
-    code-links:
-      - text: Github link source code
-        href: https://data.nasa.gov/
-    css: csss
-    code-overflow: wrap
-   # code-tools: 
-      #  source: true
 ---
 
 # Question 1
