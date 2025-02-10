@@ -1,8 +1,3 @@
----
-title: "Practical Two"
-author: "Karabo Tigedi"
----
-
 # Lowess Smoothing
 
 In this practical our aim is to create a custom Lowess function that smoothes points out from a given data.

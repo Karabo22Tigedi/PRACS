@@ -1,8 +1,3 @@
----
-title: "Practical Day four"
-author: "Karabo Tigedi"
----
-
 # Question 1
 
 ```{r}

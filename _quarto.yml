@@ -19,17 +19,20 @@ book:
     - PRAC_2.qmd
     - PRAC_DAY_4.qmd
     
+
 format: 
   html: 
     toc: true
     theme: 
         dark: darkly
     toc-depth: 3
-    toc-location: left
-    toc-title: "On this page"
+#    toc-location: left
+ #   toc-title: "On this page"
     code-links:
       - text: Github link source code
         href: https://data.nasa.gov/
     css: csss
     code-overflow: wrap
+   # code-tools: 
+      #  source: true
 
