@@ -1,0 +1,122 @@
+---
+title: "Practical One"
+author: "Karabo Tigedi"
+format: 
+  html: 
+    toc: true
+    theme: 
+        dark: darkly
+    toc-depth: 3
+    toc-location: left
+    toc-title: "On this page"
+    code-links:
+      - text: Github link source code
+        href: https://data.nasa.gov/
+    css: csss
+    code-overflow: wrap
+   # code-tools: 
+      #  source: true
+---
+
+# Question 1
+
+Airquality (available in R) was utilised for this question. Here is a sneak peak of the dataset:
+
+```{r}
+#| echo: false
+quality_data = airquality
+head(quality_data)
+```
+
+The data consists of Ozone, Solar.R, Wind, Temp, Month, and Day columns.
+
+```{r}
+#| code-fold: true
+quality_data = airquality
+head(quality_data[(is.na(quality_data$Ozone) | is.na(quality_data$Temp)),])
+tail(quality_data[(is.na(quality_data$Ozone) | is.na(quality_data$Temp)),])
+```
+
+# Question 2
+
+The following statistics: mean, sd, min, and max were derived for each of temperature and ozone level, and they are as follows:
+
+```{r}
+#| code-fold: true
+temp_info = data.frame("Mean" = mean(quality_data$Temp),
+                       "Sd" = sd(quality_data$Temp), 
+                       "Min" = min(quality_data$Temp), 
+                       "Max" = max(quality_data$Temp))
+temp_info
+```
+
+However, the Ozone column has a few rows with missing data(NAs):
+
+```{r}
+#| echo: false
+cat("[OUTPUT] Number of missing values for Ozone column:","\t", sum(is.na(quality_data$Ozone)))
+```
+
+So a slight adjustment was made to the code to find the missing values. Please select the *Code* button below to see the slight adjustment. However, here are the statistics:
+
+```{r}
+#| code-fold: true
+Ozone_info = data.frame("Mean" = mean(quality_data$Ozone, na.rm = T),
+                       "Sd" = sd(quality_data$Ozone, na.rm = T), 
+                       "Min" = min(quality_data$Ozone, na.rm = T), 
+                       "Max" = max(quality_data$Ozone, na.rm = T))
+
+Ozone_info
+```
+
+# Question 3
+
+Now we move to a different dataset called *Cars* available in R. Here is a sneak peak of the data:
+
+```{r}
+#| echo: false
+cars_data = cars
+head(cars_data)
+```
+
+In this section we wanted to, from first principle or Using matrix calculations, find linear regression beta estimates, t-statistics, r squared, standard errors, etc, and fortunately we found the following:
+
+```{r}
+#| echo: false
+x = cbind(1,cars_data$speed)
+y = cars_data$dist
+beta_ests = (solve(t(x)%*%x))%*%t(x)%*%y
+cars_data = cars
+y_hat = x%*%beta_ests
+rss = (y - y_hat)^2 |> sum() # Residual Sum of Squares
+tss = (y - mean(y))^2 |> sum()   # Total Sum of Squares
+r_squared = (tss - rss)/ tss
+n = length(y)  # Number of observations
+p = ncol(x)    # Number of pars including intercept
+residual_variance = rss / (n -p)  # Estimate of residual variance
+covariance_matrix = residual_variance*solve(t(x) %*% x)
+standard_errors = sqrt(diag(covariance_matrix))
+t_stats = beta_ests / standard_errors
+p_values = 2 *(1 - pt(abs(t_stats), df = n -p ))
+list(
+  Betas_estimates = beta_ests,
+  RSS = rss,
+  R_squared = r_squared,
+  Standard_errors = standard_errors,
+  P_values = p_values,
+  T_statistics = t_stats
+)
+```
+
+# Question 4
+
+Now we use lm() function in R to fit the same data and evaluate whether the estimates from the model are consistent with our first principles or not:
+
+```{r}
+#| echo: false
+# Use lm directly
+model = lm(dist ~ speed, data = cars_data)
+summary(model)
+```
+
+As you can see, the results are quite the same. Thank God!! We are so smart! Interpretation: As speed increases by one unit, distance to stop increases by 3.932 (holding everything else constant).

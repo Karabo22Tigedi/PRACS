@@ -1,0 +1,100 @@
+---
+title: "Practical Two"
+author: "Karabo Tigedi"
+format: 
+  html: 
+    toc: true
+    theme: 
+        dark: darkly
+    toc-depth: 3
+    toc-location: left
+    toc-title: "On this page"
+    code-links:
+      - text: Github link source code
+        href: https://data.nasa.gov/
+    css: csss
+    code-overflow: wrap
+   # code-tools: 
+      #  source: true
+---
+
+# Lowess Smoothing
+
+In this practical our aim is to create a custom Lowess function that smoothes points out from a given data.
+
+### Data Simulation
+
+We start first by simulating our x and y values.
+
+```{r}
+#| code-fold: true
+set.seed(1)
+x = seq(1,100)
+y = numeric(length(x))
+e = rnorm(100,0,0.2^2)
+
+for (i in 1:100){
+  y[i] = sin(x[i]/10) + e[i]
+}
+plot(x,y)
+```
+
+### Lowess Function Code
+
+Now we code the custom Lowess function.
+
+```{r}
+#| echo: true
+customLowess = function(x, y, f){
+  n = length(x)  # n = Number of observations
+  w = numeric(n)      
+  y_hat = numeric(n)     
+  k = ceiling(f * n) # k = Number of nearest neighbours
+  
+  for (i in 1:n) {  
+    dists = abs(x - x[i])   # Calculating the distances
+    d_max = sort(dists)[k]   # Finding the max distance
+    w = (1 - (dists / d_max)^3)^3 # Calculating the weights
+    w[w < 0] = 0        
+    X = cbind(1, x)
+    W = diag(w) 
+    B_hat = solve(t(X) %*% W %*% X) %*% t(X) %*% W %*% y   # Calculating the betas
+    y_hat[i] = B_hat[1] + B_hat[2] * x[i]
+  }
+  
+  return(y_hat)  # Returning a complete smoothed out vector of y values.
+}
+```
+
+### Plots
+
+Following from the code, the next step is to evaluate the results and see whether the smoothed plot from the R Lowess function is the same as the plot of of the smoothed values from our custom. For purposes of demonstration, we have chosen the value of 0.3 for our *span* along with the simulated points for our x and y values. Here are the plots:
+
+```{r}
+#| code-fold: true
+smoothed_y = customLowess(x,y, 0.3)
+lowess_fit = lowess(x, y, f = 0.3, iter = 0)
+plot(x,y,ylab = "Smoothed y values", xlab = "x values", 
+     main = "Custom Lowess function")
+lines(x,smoothed_y, col = "blue")
+
+plot(x,y,ylab = "Smoothed y values", xlab = "x values", 
+     main = "R Lowess function")
+lines(x, lowess_fit$y, col = "red" )
+```
+
+Indeed, the results are identical. Our custom function gives us correct output.
+
+#### Additional evaluation
+
+Aside from the plots, we can also evaluate the actual y-values we get from both functions. Let us see if they are identical or not:
+
+```{r}
+#| echo: false
+cat("The following are the y-values from the R lowess function \n")
+print(lowess_fit$y)
+cat("The following are the y-values from the custom function \n")
+print(smoothed_y)
+```
+
+The results are indeed the same again.
