@@ -13,8 +13,9 @@ website:
       - href: PRAC_DAY_4.qmd
         text: Practical day 4
       
-book: 
+book:
   chapters: 
+    - index.qmd
     - PRAC_1.qmd
     - PRAC_2.qmd
     - PRAC_DAY_4.qmd
