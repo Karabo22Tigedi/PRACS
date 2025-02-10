@@ -347,13 +347,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="7"><span class="header-section-number">7</span> Question 3</h1>
 <p>The standard deviation (SD) measures the spread of values. If there is only one observation in a group, SD cannot be computed (hence, NA). If all values in a group are identical, the SD is 0 (no variation). Look at the following example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">carrier =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">delay =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">7</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate sd by carrier</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>df_summary <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(carrier) <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>df_summary <span class="ot">=</span> df <span class="sc">|&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(carrier) <span class="sc">|&gt;</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sd_delay =</span> <span class="fu">sd</span>(delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -677,52 +677,52 @@ dplyr 1.1.0.
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>UtilsDataRSV<span class="sc">::</span><span class="fu">view_cols</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "id"
- [1] "id_3"  "id_43" "id_9"  "id_11" "id_31" "id_41" "id_20" "id_27" "id_30"
-[10] "id_22" "id_12" "id_13" "id_6"  "id_49" "id_50" "id_46" "id_21" "id_28"
-[19] "id_34" "id_40"
+ [1] "id_4"  "id_16" "id_11" "id_44" "id_6"  "id_28" "id_50" "id_34" "id_47"
+[10] "id_23" "id_30" "id_27" "id_19" "id_41" "id_22" "id_21" "id_15" "id_36"
+[19] "id_9"  "id_8" 
 [1] "30 unique entries not displayed"
 [1] "_____________________"
 [1] "age"
-[1] 48 79 70 56 22
+[1] 22 36 33 26 24
 [1] "_____________________"
 [1] "gender"
 [1] "femal"  "male"   "female"
 [1] "_____________________"
 [1] "height"
-[1] 199.0 165.1 192.4 157.7    NA
+[1] 165.6 179.3 199.2 186.6    NA
 [1] "_____________________"
 [1] "weight"
-[1] 55.6 57.6 66.1 87.0 98.1
+[1] 72.2 68.6 95.1 55.6 78.2
 [1] "_____________________"
 [1] "blood_type"
-[1] "B"  "O"  "AB" "A" 
+[1] "A"  "O"  "AB" "B" 
 [1] "_____________________"
 [1] "disease_status"
-[1] "diseased" "healthy"  "Healthy" 
+[1] "Healthy"  "healthy"  "diseased"
 [1] "_____________________"
 [1] "cholesterol"
-[1] 173 212 203 223 185
+[1] 179 235 228 151 213
 [1] "_____________________"
 [1] "glucose"
-[1] 88 90 91 80 NA
+[1]  82  88 120 109  NA
 [1] "_____________________"
 [1] "smoker"
-[1] "yes" "no" 
+[1] "no"  "yes"
 [1] "_____________________"
 [1] "exercise"
-[1] "occasional" "none"       "regular"   
+[1] "regular"    "occasional" "none"      
 [1] "_____________________"
 [1] "income"
-[1] 77275 47553 25338 74533 43750
+[1] 74474 84820 72490 57315 63629
 [1] "_____________________"
 [1] "education"
-[1] "master"     "bachelor"   "highschool" "PhD"       
+[1] "highschool" "master"     "PhD"        "bachelor"  
 [1] "_____________________"
 [1] "region"
-[1] "East"  "North" "South" "West" 
+[1] "North" "East"  "South" "West" 
 [1] "_____________________"
 [1] "marital_status"
-[1] "single"   "widowed"  "married"  "divorced"
+[1] "married"  "single"   "widowed"  "divorced"
 [1] "_____________________"</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
