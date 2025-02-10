@@ -1,5 +1,6 @@
 ---
-title: "Practical Two"
+title: "Practical One"
+author: "Karabo Tigedi"
 ---
 
 # Lowess Smoothing
@@ -74,7 +75,7 @@ Indeed, the results are identical. Our custom function gives us correct output.
 Aside from the plots, we can also evaluate the actual y-values we get from both functions. Let us see if they are identical or not:
 
 ```{r}
-#| echo: false
+#| code-fold: true
 cat("The following are the y-values from the R lowess function \n")
 print(lowess_fit$y)
 cat("The following are the y-values from the custom function \n")

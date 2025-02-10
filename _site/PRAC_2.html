@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Karabo Tigedi">
 
-<title>3&nbsp; Lowess Smoothing – Practicals</title>
+<title>3&nbsp; Practical One – Practicals</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./PRAC_2.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lowess Smoothing</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./PRAC_2.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practical One</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -149,25 +150,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome to my practicals website!!</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">WELCOME PAGE</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./PRAC_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Question 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Practical One</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./PRAC_2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lowess Smoothing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practical One</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./PRAC_DAY_4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Question 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical One</span></span></a>
   </div>
 </li>
     </ul>
@@ -180,9 +181,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-simulation" id="toc-data-simulation" class="nav-link active" data-scroll-target="#data-simulation"><span class="header-section-number">3.0.1</span> Data Simulation</a></li>
-  <li><a href="#lowess-function-code" id="toc-lowess-function-code" class="nav-link" data-scroll-target="#lowess-function-code"><span class="header-section-number">3.0.2</span> Lowess Function Code</a></li>
-  <li><a href="#plots" id="toc-plots" class="nav-link" data-scroll-target="#plots"><span class="header-section-number">3.0.3</span> Plots</a></li>
+  <li><a href="#lowess-smoothing" id="toc-lowess-smoothing" class="nav-link active" data-scroll-target="#lowess-smoothing"><span class="header-section-number">4</span> Lowess Smoothing</a>
+  <ul class="collapse">
+  <li><a href="#data-simulation" id="toc-data-simulation" class="nav-link" data-scroll-target="#data-simulation"><span class="header-section-number">4.0.1</span> Data Simulation</a></li>
+  <li><a href="#lowess-function-code" id="toc-lowess-function-code" class="nav-link" data-scroll-target="#lowess-function-code"><span class="header-section-number">4.0.2</span> Lowess Function Code</a></li>
+  <li><a href="#plots" id="toc-plots" class="nav-link" data-scroll-target="#plots"><span class="header-section-number">4.0.3</span> Plots</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://data.nasa.gov/"><i class="bi bi-link-45deg"></i>Github link source code</a></li></ul></div></nav>
     </div>
@@ -191,13 +195,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lowess Smoothing</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practical One</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Karabo Tigedi </p>
+          </div>
+  </div>
     
   
     
@@ -208,9 +218,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="lowess-smoothing" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Lowess Smoothing</h1>
 <p>In this practical our aim is to create a custom Lowess function that smoothes points out from a given data.</p>
-<section id="data-simulation" class="level3" data-number="3.0.1">
-<h3 data-number="3.0.1" class="anchored" data-anchor-id="data-simulation"><span class="header-section-number">3.0.1</span> Data Simulation</h3>
+<section id="data-simulation" class="level3" data-number="4.0.1">
+<h3 data-number="4.0.1" class="anchored" data-anchor-id="data-simulation"><span class="header-section-number">4.0.1</span> Data Simulation</h3>
 <p>We start first by simulating our x and y values.</p>
 <div class="cell">
 <details class="code-fold">
@@ -234,8 +246,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="lowess-function-code" class="level3" data-number="3.0.2">
-<h3 data-number="3.0.2" class="anchored" data-anchor-id="lowess-function-code"><span class="header-section-number">3.0.2</span> Lowess Function Code</h3>
+<section id="lowess-function-code" class="level3" data-number="4.0.2">
+<h3 data-number="4.0.2" class="anchored" data-anchor-id="lowess-function-code"><span class="header-section-number">4.0.2</span> Lowess Function Code</h3>
 <p>Now we code the custom Lowess function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>customLowess <span class="ot">=</span> <span class="cf">function</span>(x, y, f){</span>
@@ -259,8 +271,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="plots" class="level3" data-number="3.0.3">
-<h3 data-number="3.0.3" class="anchored" data-anchor-id="plots"><span class="header-section-number">3.0.3</span> Plots</h3>
+<section id="plots" class="level3" data-number="4.0.3">
+<h3 data-number="4.0.3" class="anchored" data-anchor-id="plots"><span class="header-section-number">4.0.3</span> Plots</h3>
 <p>Following from the code, the next step is to evaluate the results and see whether the smoothed plot from the R Lowess function is the same as the plot of of the smoothed values from our custom. For purposes of demonstration, we have chosen the value of 0.3 for our <em>span</em> along with the simulated points for our x and y values. Here are the plots:</p>
 <div class="cell">
 <details class="code-fold">
@@ -293,13 +305,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Indeed, the results are identical. Our custom function gives us correct output.</p>
-<section id="additional-evaluation" class="level4" data-number="3.0.3.1">
-<h4 data-number="3.0.3.1" class="anchored" data-anchor-id="additional-evaluation"><span class="header-section-number">3.0.3.1</span> Additional evaluation</h4>
+<section id="additional-evaluation" class="level4" data-number="4.0.3.1">
+<h4 data-number="4.0.3.1" class="anchored" data-anchor-id="additional-evaluation"><span class="header-section-number">4.0.3.1</span> Additional evaluation</h4>
 <p>Aside from the plots, we can also evaluate the actual y-values we get from both functions. Let us see if they are identical or not:</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"The following are the y-values from the R lowess function </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>The following are the y-values from the R lowess function </code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lowess_fit<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1]  0.34710017  0.39047183  0.43263675  0.47357343  0.51329887  0.55184898
   [7]  0.58927625  0.62565069  0.66104963  0.69555158  0.72923752  0.76219405
@@ -319,9 +339,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  [91]  0.25532439  0.17884076  0.10169934  0.02386028 -0.05471195 -0.13404715
  [97] -0.21417084 -0.29509538 -0.37680843 -0.45927386</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"The following are the y-values from the custom function </span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>The following are the y-values from the custom function </code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(smoothed_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1]  0.34710017  0.39047183  0.43263675  0.47357343  0.51329887  0.55184898
   [7]  0.58927625  0.62565069  0.66104963  0.69555158  0.72923752  0.76219405
@@ -345,6 +373,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The results are indeed the same again.</p>
 
 
+</section>
 </section>
 </section>
 
@@ -915,13 +944,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./PRAC_1.html" class="pagination-link" aria-label="Question 1">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Question 1</span></span>
+      <a href="./PRAC_1.html" class="pagination-link" aria-label="Practical One">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Practical One</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./PRAC_DAY_4.html" class="pagination-link" aria-label="Question 1">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Question 1</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./PRAC_DAY_4.html" class="pagination-link" aria-label="Practical One">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical One</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,5 +1,6 @@
 ---
 title: "Practical One"
+author: "Karabo Tigedi"
 ---
 
 # Question 1
@@ -7,7 +8,7 @@ title: "Practical One"
 Airquality (available in R) was utilised for this question. Here is a sneak peak of the dataset:
 
 ```{r}
-#| echo: false
+#| code-fold: true
 quality_data = airquality
 head(quality_data)
 ```
@@ -37,7 +38,7 @@ temp_info
 However, the Ozone column has a few rows with missing data(NAs):
 
 ```{r}
-#| echo: false
+#| code-fold: true
 cat("[OUTPUT] Number of missing values for Ozone column:","\t", sum(is.na(quality_data$Ozone)))
 ```
 
@@ -58,7 +59,7 @@ Ozone_info
 Now we move to a different dataset called *Cars* available in R. Here is a sneak peak of the data:
 
 ```{r}
-#| echo: false
+#| code-fold: true
 cars_data = cars
 head(cars_data)
 ```
@@ -66,7 +67,7 @@ head(cars_data)
 In this section we wanted to, from first principle or Using matrix calculations, find linear regression beta estimates, t-statistics, r squared, standard errors, etc, and fortunately we found the following:
 
 ```{r}
-#| echo: false
+#| code-fold: true
 x = cbind(1,cars_data$speed)
 y = cars_data$dist
 beta_ests = (solve(t(x)%*%x))%*%t(x)%*%y
@@ -97,7 +98,7 @@ list(
 Now we use lm() function in R to fit the same data and evaluate whether the estimates from the model are consistent with our first principles or not:
 
 ```{r}
-#| echo: false
+#| code-fold: true
 # Use lm directly
 model = lm(dist ~ speed, data = cars_data)
 summary(model)

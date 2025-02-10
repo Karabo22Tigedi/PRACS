@@ -1,5 +1,6 @@
 ---
-title: "Practical Day Four"
+title: "Practical One"
+author: "Karabo Tigedi"
 ---
 
 # Question 1
@@ -16,6 +17,7 @@ tibble(flights)
 Under this code, is the same code rewritten using *dplyr* and pipe:
 
 ```{r}
+#| echo: true
 flight1 <- flights[flights$month == 1, ]
 carrier_vec <- unique(flight1$carrier)
 carrier_dist_vec_mean <- numeric(length(carrier_vec))
@@ -148,7 +150,7 @@ best_worst_airlines |>
 # Question 7
 
 ```{r}
-#| echo: false
+#| code-fold: true
 data = structure(list(id = c("id_1", "id_2", "id_3", "id_4", "id_5", 
 "id_6", "id_7", "id_8", "id_9", "id_10", "id_11", "id_12", "id_13", 
 "id_14", "id_15", "id_16", "id_17", "id_18", "id_19", "id_20", 
@@ -251,14 +253,14 @@ NA, 77, 80, 115, 85, 88, 109, NA, 71, 90, 94, 91, 87, 113, 93,
 Here are the names of the columns from the data:
 
 ```{r}
-#| echo: false
+#| echo: true
 names(data)
 ```
 
 Using views_cols() to check the columns with missing entries, typos and any other inconsistencies.
 
 ```{r}
-#| echo: false
+#| echo: true
 UtilsDataRSV::view_cols(data)
 ```
 
