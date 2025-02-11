@@ -119,7 +119,7 @@ flights_b = flights |> group_by(origin,dest, carrier) |>
   summarise(avg_arr_delay = mean(arr_delay,na.rm = T)) |>
   left_join(airlines, by = "carrier") |>
   select(origin, dest, carrier, name, avg_arr_delay)
-flights_c
+flights_b
 ```
 
 ####### 6.3.
