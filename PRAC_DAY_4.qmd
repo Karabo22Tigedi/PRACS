@@ -115,7 +115,7 @@ flights |> group_by(origin,dest) |>
 
 ```{r}
 #| echo: true
-flights_c = flights |> group_by(origin,dest, carrier) |>
+flights_b = flights |> group_by(origin,dest, carrier) |>
   summarise(avg_arr_delay = mean(arr_delay,na.rm = T)) |>
   left_join(airlines, by = "carrier") |>
   select(origin, dest, carrier, name, avg_arr_delay)
@@ -126,7 +126,7 @@ flights_c
 
 ```{r}
 #| echo: true
-best_worst_airlines = flights_c |>
+best_worst_airlines = flights_b |>
   group_by(origin, dest) |>
   summarise(
     best_airline = name[which.min(avg_arr_delay)],
